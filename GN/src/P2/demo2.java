@@ -1,4 +1,4 @@
-package P1;
+package P2;
 
 public class demo2 {
     public static int maxSubSum4(int[] a){//通过过大(负数)作为节点切分(一旦前面的足以抵消负数那么就可以以他作为起点)

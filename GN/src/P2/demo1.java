@@ -1,4 +1,4 @@
-package P1;
+package P2;
 
 public class demo1 {
     private static int maxSumRec(int[] a,int left,int right){//首先对数组的左边界和有边界做出了规定
