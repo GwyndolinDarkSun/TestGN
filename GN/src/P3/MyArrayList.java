@@ -59,6 +59,7 @@ public class MyArrayList<AnyType> implements Iterator<AnyType>{
 
         AnyType[] old = theItems;
         theItems = (AnyType[]) new Object[newCapacity];//因为泛型数组的创建是违法的
+        //因此这里要先创建一个obj然后强转
         for(int i = 0;i < size();i++){
             theItems[i] = old[i];
         }
@@ -111,7 +112,7 @@ public class MyArrayList<AnyType> implements Iterator<AnyType>{
         @Override
         public void remove() {
             MyArrayList.this.remove(--current);
-        }
+        }//只能一步一步的推进,不能直接修改
     }
 }
 
