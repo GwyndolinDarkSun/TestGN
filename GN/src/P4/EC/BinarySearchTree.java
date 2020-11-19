@@ -97,11 +97,11 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>{
         }
         int comparaResult = x.compareTo(t.element);
         if(comparaResult < 0){//这里是链接点(该点的节点就是插入的节点)
-            t.left = insert(x,t.left);
+            t.left = insert(x,t.left);//这层等
         }else if(comparaResult > 0){
             t.right = insert(x,t.right);
         }
-        return t;
+        return t;//上层等
     }
 
     public void remove(AnyType x){
