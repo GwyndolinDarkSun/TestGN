@@ -49,7 +49,7 @@ public class SeparateChainingHashTable<AnyType> {
     }
 
     public boolean contains(AnyType x){
-        List<AnyType> whichList = theLists[myhash(x)];//正因为列表中的元素都是一样的(定义的,大多情况有微笑差别),才敢这么玩
+        List<AnyType> whichList = theLists[myhash(x)];//正因为列表中的元素都是一样的(定义的,大多情况有微笑差别d),才敢这么玩
         return  whichList.contains(x);
     }
 
