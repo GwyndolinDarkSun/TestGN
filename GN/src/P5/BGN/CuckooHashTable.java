@@ -124,26 +124,26 @@ public class CuckooHashTable <AnyType>{
             int lastPos = -1;
             int pos;
 
-            for(int count = 0;count < COUNT_LIMIT;count++){
-                for(int i = 0;i < numHashFunctions;i ++){
-                    pos = myhash(x,i);
-                    if(array[pos] == null){
-                        array[pos] = x;
-                        currentSize++;
-                        return true;
-                    }
+        for(int count = 0;count < COUNT_LIMIT;count++) {
+            for (int i = 0; i < numHashFunctions; i++) {
+                pos = myhash(x, i);
+                if (array[pos] == null) {
+                    array[pos] = x;
+                    currentSize++;
+                    return true;
                 }
             }
-            //如果进行到这里,证明散列处具有元素
+
+            //如果进行到这里,证明任意散列处具有元素
             int i = 0;
-            do{
-                pos = myhash(x,r.nextInt(numHashFunctions));
-            }while (pos == lastPos && i ++ < 5);//连续最多寻找五次(防止两个函数同时探测同一个位置)
+            do {
+                pos = myhash(x, r.nextInt(numHashFunctions));
+            } while (pos == lastPos && i++ < 5);//连续最多寻找五次(防止两个函数同时探测同一个位置)
 
             AnyType tmp = array[lastPos = pos];
             array[pos] = x;
-            x = tmp;
-
+            x = tmp;//因为该例程都是x经过的,将x值改变之后再循环将做到往后替换的效果
+        }
             if(++rehashes > ALLOWED_REHASHES){//只要下一次大于,那么就千万别继续了!停下来拓展下课空间吧
                 expand();
                 rehashes = 0;
